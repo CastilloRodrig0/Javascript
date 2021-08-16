@@ -134,36 +134,52 @@ input {
 </div>
 
 <ul id="miUl">
-  <li onclick="checkear()" id="liEjemplo"  >Hit the gym</li>
-  <li class="checked" >Pay bills</li>
-  <li>Meet George</li>
+
 </ul>
 
 <script>
-          function creacion(){
-          tareaNueva.value="";
-           tareaNueva.focus();
-         }
+
+
             function agregarItem()
         {
-            let tareaNueva = document.getElementById('miTexto');
+          let tareaNueva = document.getElementById('miTexto');
+
             let miUl = document.getElementById('miUl');
 
             let itemNuevo= document.createElement('li');
 
             itemNuevo.append(tareaNueva.value);
-            console.log(itemNuevo);
+
+          itemNuevo.addEventListener('click',function(elClick){
+            let elemento = elClick.target;
+            elemento.classList.toggle('checked');
+          })
+
+          let botonCerrar = document.createElement('span');
+          botonCerrar.classList.add('close');
+          botonCerrar.append('x');
+          itemNuevo.append(botonCerrar);
+          botonCerrar.addEventListener('click',function(elClick){
+            let boton = elClick.target.parentElement;
+            boton.style.display='none';
+          })
+
+          focus();
 
            miUl.append(itemNuevo);
-           creacion();
 
         }
 
-        function checkear()
-        {
-          let ejemplo = document.getElementById('liEjemplo');
-          ejemplo.classList.toggle('checked');
+           function focus(){
+            let tareaNueva = document.getElementById('miTexto');
+
+          tareaNueva.value="";
+           tareaNueva.focus();
         }
+   
+  
+          
+
 
 
 </script>
