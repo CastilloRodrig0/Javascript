@@ -5,10 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>.close {
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding: 12px 16px 12px 16px;
+      }</style>
 </head>
 <body>
     <button id="botonAgregar" onclick="agregandoValor()" >agregar</button>
-    <ul id="Lista">
+    <ul id="Lista" >
     </ul>
     <script>
         let Lista = document.getElementById('Lista');
@@ -22,11 +28,21 @@
         let itemNuevo = document.createElement('li');
         let valor = numNuevo();
         itemNuevo.append(valor);
+        let botonCerrar = document.createElement('span');
+          botonCerrar.classList.add('close');
+          botonCerrar.append('x');
+          itemNuevo.append(botonCerrar);
+          botonCerrar.addEventListener('click',function(elClick){
+            let boton = elClick.target.parentElement;
+            boton.style.display='none';
+          })
+
         return itemNuevo;   
    }
       function agregandoValor(){
         Lista.append(creandoList());
-
+       
+        
       }
 
     </script>
