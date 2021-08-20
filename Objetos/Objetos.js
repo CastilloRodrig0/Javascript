@@ -1,11 +1,11 @@
-const persona =['Rodrigo',24,48329];
+const persona = ['Rodrigo', 24, 48329];
 
 //console.log('nombre: ' + persona[0]);
 
-let persona1 ={
-nombre:"Rodrigo",
-edad : 24,
-ojos:2,
+let persona1 = {
+    nombre: "Rodrigo",
+    edad: 24,
+    ojos: 2,
 };
 // let persona2 ={
 //     nombre:"Lucas",
@@ -44,7 +44,7 @@ ojos:2,
 //  patas:4,
 //   hablar: function()
 //     {
-    
+
 //      console.log('mi raza es'+ this.raza);
 //     }
 // // };
@@ -57,42 +57,45 @@ ojos:2,
 //     }
 // };
 
-let saludar = function(){
-let nombre = 'rodrigo';
-let edad = 24
-console.log(nombre);
+let saludar = function () {
+    let nombre = 'rodrigo';
+    let edad = 24
+    console.log(nombre);
 }
 console.log(mascota.hablar);
-if(true){
+if (true) {
     let skill = 'javascript';
-    const profesion='estudiante'
+    const profesion = 'estudiante'
     console.log(profesion);
 }
 
 
-//------------------Objetos------------------------
+//------------------Objetos------------------------//
 
 class ObjetoPersona {
-constructor(nombre,edad){
-    this.nombre=nombre,
-    this.edad=edad
+    constructor(nombre, edad, apellido) {
+        this.nombre = nombre,
+            this.apellido = apellido,
+            this.edad = edad
     }
-    hablar(){
-        console.log(this.nombre + ' esta hablando');
+    getNombreCompleto() {
+        let nombreCompleto = this.nombre + " " + this.apellido;
+    }
+    setNombre() {
+        this.nombre = nuevoNombre;
     }
 }
 
-let rodrigo = new ObjetoPersona('Rodrigo',24);
+let rodrigo = new ObjetoPersona('Rodrigo', 24);
 
-class Profesor extends ObjetoPersona{
-    constructor(nombre,edad,tipo)
-    {
-        super(nombre,edad);
+class Profesor extends ObjetoPersona {
+    constructor(nombre, apellido, edad, tipo) {
+        super(nombre, apellido, edad);
         this.tipo = tipo;
-    
+
     }
-    tipoFormateado(){
+    tipoFormateado() {
         return ('Tipo de contratacion: ' + this.tipo);
     }
 }
-let profe = new Profesor ('MAX', 35, 'developer');
+let profe = new Profesor('MAX', 35, 'developer');
